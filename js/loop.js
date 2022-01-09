@@ -68,8 +68,12 @@ function removeCharacters ( id ) {
 
 function move() {
 
+    charSpeed -= 0.001
+
+    if (charSpeed < 0) charSpeed = 0
+
     // add up to position for movement
-    position += 0.01;
+    position += charSpeed;
 
     // get the point at position
     var point = charPath.getPointAt(position);
@@ -88,13 +92,27 @@ function move() {
         
 }
 
+var tangent
+
+window.addEventListener( 'keydown', (e)=> {
+
+    switch( e.code ) {
+
+        case 'KeyW':
+        case 'ArrowUp':
+            console.log(tangent)
+            break;
+    };
+    
+}, false);
+
 function getAngle( position ){
 
     // get the 2Dtangent to the curve
-    var tangent = charPath.getTangent(position).normalize();
+    tangent = charPath.getTangent(position).normalize();
 
     // change tangent to 3D
-    angle = - Math.atan( tangent.x / tangent.y);
+    angle = Math.atan2( tangent.y, tangent.x) + Math.PI / 2;
 
     return angle;
 }

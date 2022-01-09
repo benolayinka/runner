@@ -64,6 +64,7 @@ const arcAngle3 = Math.acos(arcCenterX / innerTrackRadius);
 
 const arcAngle4 = Math.acos(arcCenterX / outerTrackRadius);
 
+let charSpeed = 0
 let score;
 const speed = 0.0017;
 
