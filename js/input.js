@@ -8,8 +8,6 @@ var lastKey
 
 function processKey(key) {
 
-    console.log("key")
-
     if(key === "a" || key === "s") {
 
         if(key !== lastKey) boost()

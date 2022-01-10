@@ -21,8 +21,6 @@ function loop() {
 
     requestAnimationFrame( loop );
 
-    // console.log(playerData)
-
 };
 
 // event handlers for multiplayer
@@ -71,6 +69,9 @@ function move() {
     charSpeed -= 0.001
 
     if (charSpeed < 0) charSpeed = 0
+
+    if (charSpeed === 0) playerData.a = "idleGround"
+    else playerData.a = "running"
 
     // add up to position for movement
     position += charSpeed;
